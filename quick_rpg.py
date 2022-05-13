@@ -1,45 +1,36 @@
 # !/usr/bin/python3
 import random
 
-players = {
-    "id0": {
-        'name': "New Player",
-        'age': 0,
-        'race': "Human",
-        'height-ft': 5.2,
-        'weight-lbs': 160,
-        'level': 1,
-        'money': 100,
-        'isBanned':False,
-    }
-}
-Class Player():
+all_players = []
 
-    def initialize():
-        playerID = random.randint(1,1000000)
-        players[playerID] = {
-            'name': "New Player",
-            'age': 0,
-            'race': "None",
-            'height-ft': 0,
-            'weight-lbs': 0,
-            'level': 0,
-            'money': 100,
-            'isBanned':False,
-        }
-        return playerID
+class Player:
 
-    def new_player(name, age, race, height, weight):
-        playerID = initialize()
-        players[playerID].update(  {
-            'name': name,
-            'age': age,
-            'race': race,
-            'height-ft': height,
-            'weight-lbs': weight,
-        }
-        )
-        print(f'{players}')
+    def __init__(self, name= "New Player", age = 1, race = "Human",height= 5.2, weight= 160,):
+        self.id = random.randint(1,1000000)
+        self.name = str.title(name)
+        self.age = age
+        self.race= str.title(race)
+        self.height = height
+        self.weight = weight
+        self.level = 0
+        self.money = 100
+        self.stats = {
+            "strength" : 10,
+            "dexterity" : 10,
+            "constitution" : 10,
+            "intelligence" : 10,
+            "perception" : 10,
+            "charisma" : 10,
+        },
+        self.isBanned = False
+        self.username= self.name + "#" + str(self.id)
 
-new_player('John',15,'Human',4.6,147)
+    def ban(self):
+        self.isBanned = True
 
+player1 = Player('george',15,'human',4.6,147)
+print(player1.username)
+# player1.ban()
+print(player1.isBanned)
+
+print(f'Hello {player1.name}!')
