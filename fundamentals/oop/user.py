@@ -1,3 +1,6 @@
+# !/usr/bin/python3
+import bankAccount
+
 class User:
 
     def __init__(self, first_name, last_name, email, age):
@@ -7,6 +10,7 @@ class User:
         self.age = age
         self.is_rewards_member = False
         self.gold_card_points = 0
+        self.account = BankAccount(int_rate=0.02, balance=0)
 
     def display_info(self):
         print('----------')
@@ -17,7 +21,6 @@ class User:
         print(f'Reward Member Status: {self.is_rewards_member}')
         print(f'Gold card points:{self.gold_card_points}')
         return self
-
 
     def enroll(self):
         if self.is_rewards_member:
@@ -49,19 +52,19 @@ class User:
 
 
 smith = User('john', 'smith', 'john.smith@email.mail', 22)
-smith.display_info().enroll().add_points(100)
+# smith.display_info().enroll().add_points(100)
 
-jones = User('james', 'jones', 'james.jones@email.mail', 57)
-brown = User('john', 'brown', 'john.brown@email.mail', 34)
+# jones = User('james', 'jones', 'james.jones@email.mail', 57)
+# brown = User('john', 'brown', 'john.brown@email.mail', 34)
 
-smith.spend_points(50)
+# smith.spend_points(50)
 
-jones.enroll().spend_points(80)
+# jones.enroll().spend_points(80)
 
-smith.display_info()
-jones.display_info()
-brown.display_info()
+# smith.display_info()
+# jones.display_info()
+# brown.display_info()
 
-smith.enroll()
+# smith.enroll()
 
-brown.spend_points(40)
+# brown.spend_points(40)

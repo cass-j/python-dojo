@@ -2,17 +2,11 @@
 from time import gmtime, strftime, localtime
 
 class BankAccount:
-    
-    @staticmethod
-    def get_time():
-        accessTime = strftime('%d %b %Y %H:%M:%S', localtime())
-        return accessTime
 
     def __init__(self, int_rate= .005, balance= 0):
         self.balance = balance
         self.int_rate = int_rate
         self.record = [f'{BankAccount.get_time()}: Initial deposit ${str(balance)}']
-        # self.record = [f'Initial deposit ${str(balance)}']
 
     def deposit(self, amount):
         self.balance += amount
@@ -22,7 +16,7 @@ class BankAccount:
     def withdraw(self, amount):
         if amount <= self.balance:
             self.balance -= amount
-            self.record.append(f'{BankAccount.get_time()}: Withdrawl ${str(amount)}')
+            self.record.append(f'{BankAccount.get_time()}Withdrawl ${str(amount)}')
             return self
         print('Insufficient funds')
         self.record.append(f'{BankAccount.get_time()}: Withdrawl attempt for ${str(amount)}, insufficient funds')
@@ -46,14 +40,21 @@ class BankAccount:
             print(f'{entry}')
         print(f'----------')
 
+#static methods
+    @staticmethod
+    def get_time():
+        accessTime = strftime('%d %b %Y %H:%M:%S', localtime())
+        return accessTime
 
 
+# begin execution
+# 
 # print(BankAccount.get_time())
-account1 = BankAccount(.005, 50)
-account2 = BankAccount(.015,1500)
+# account1 = BankAccount(.005, 50)
+# account2 = BankAccount(.015,1500)
 
-account1.deposit(56).deposit(92).deposit(25).withdraw(50).yield_interest().display_account_info()
-account1.history()
+# account1.deposit(56).deposit(92).deposit(25).withdraw(50).yield_interest().display_account_info()
+# account1.history()
 
-account2.deposit(324).deposit(257).withdraw(50).withdraw(50).withdraw(500).withdraw(1000).yield_interest().display_account_info()
-account2.history()
+# account2.deposit(324).deposit(257).withdraw(50).withdraw(50).withdraw(500).withdraw(1000).yield_interest().display_account_info()
+# account2.history()
