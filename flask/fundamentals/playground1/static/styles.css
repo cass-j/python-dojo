@@ -1,0 +1,37 @@
+body {
+    background-color: #1d4376;
+}
+
+.containter {
+    display: flex;
+    flex-direction: column;
+}
+
+.shell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-containter {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    margin: 5px 0 5px 0;
+    justify-content: space-evenly;
+}
+
+.box {
+    background-color: #9fc5f8; 
+    display: flex;
+    margin: 5px 0 0 0;
+    flex: .20;
+    min-height: 150px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+}

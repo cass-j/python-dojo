@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./styles.css') }}" />
+</head>
+<body>
+    <div class="containter">
+        <div class="shell">
+            <div class="title">
+                <h1>Welcome!</h1>
+            </div>
+        </div>
+        
+        <div class="shell">
+
+            <div class="box-containter">
+
+                {% if default: %}
+                        
+                <div class="row"> <!-- Start default-->
+                    {% for x in range(default): %} 
+                        <div class="box" style="background-color: {{color}};">
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% elif boxes > 4: %}
+                    
+                    {% for x in range(0,rows): %} <!--Create a number of filled rows of boxes = boxes/4-->
+                        <div class="row">
+                            {% for y in range(0,4): %}
+                            <div class="box" style="background-color: {{color}};">
+
+                            </div>
+                            {% endfor %}   
+                        </div>
+                    {% endfor %}
+
+                    <div class="row">
+                        {% for y in range(0,last): %}
+                            <div class="box">
+
+                            </div>
+                        {% endfor %}   
+                    </div>
+
+                {% elif boxes and rows == 1 %}
+                    <div class="row">
+                        {% for y in range(0,last): %}
+                            <div class="box" style="background-color: {{color}};">
+
+                            </div>
+                        {% endfor %}   
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="{{url_for('static', filename ='./script.js') }}"></script>
+</html>

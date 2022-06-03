@@ -1,0 +1,175 @@
+Dojo and Ninjas
+--------------------
+Forward engineer the dojos_and_ninjas_schema from the previous chapter
+
+Create a .txt file where you'll save each of your queries from below
+
+Query: Create 3 new dojos
+    mysql> insert into dojos (id, name, created_at, updated_at)
+        -> values (1, 'Shadows', NOW(), NOW());
+    Query OK, 1 row affected (0.00 sec)
+    mysql> insert into dojos (id, name, created_at, updated_at)
+        -> values (2, 'Secrets', NOW(), NOW());
+    Query OK, 1 row affected (0.00 sec)
+    mysql> insert into dojos (id, name, created_at, updated_at)
+        -> values (3, 'Stealth', NOW(), NOW());
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> select * from dojos;
+    +----+---------+---------------------+---------------------+
+    | id | name    | created_at          | updated_at          |
+    +----+---------+---------------------+---------------------+
+    |  1 | Shadows | 2022-05-30 12:43:06 | 2022-05-30 12:43:06 |
+    |  2 | Secrets | 2022-05-30 12:48:19 | 2022-05-30 12:48:19 |
+    |  3 | Stealth | 2022-05-30 12:48:28 | 2022-05-30 12:48:28 |
+    +----+---------+---------------------+---------------------+
+    3 rows in set (0.00 sec)
+
+
+Query: Delete the 3 dojos you just created
+    mysql> delete from dojos where id <= 3;   
+    Query OK, 3 rows affected (0.00 sec)
+
+    mysql> select * from dojos;
+    Empty set (0.00 sec)
+
+
+Query: Create 3 more dojos
+    mysql> insert into dojos (id, name, created_at, updated_at)
+        -> values (1, 'Dojo_1', NOW(), NOW());                  
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into dojos (id, name, created_at, updated_at)
+        -> values (2, 'Dojo_2', NOW(), NOW()); 
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into dojos (id, name, created_at, updated_at)
+        -> values (3, 'Dojo_3', NOW(), NOW()); 
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> select * from dojos;
+    +----+--------+---------------------+---------------------+
+    | id | name   | created_at          | updated_at          |
+    +----+--------+---------------------+---------------------+
+    |  1 | Dojo_1 | 2022-05-30 13:01:03 | 2022-05-30 13:01:03 |
+    |  2 | Dojo_2 | 2022-05-30 13:01:18 | 2022-05-30 13:01:18 |
+    |  3 | Dojo_3 | 2022-05-30 13:01:28 | 2022-05-30 13:01:28 |
+    +----+--------+---------------------+---------------------+
+    3 rows in set (0.00 sec)
+
+
+Query: Create 3 ninjas that belong to the first dojo
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (1, 'Shadow', 'Lurker', 23, NOW(), NOW(), 1); 
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (2, 'Hides', 'In_Silence', 19, NOW(), NOW(), 1);
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (3, 'Lies', 'Under_Bed', 18, NOW(), NOW(), 1);
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> select * from ninjas;
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    | id | first_name | last_name  | age  | created_at          | updated_at          | dojo_id |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    |  1 | Shadow     | Lurker     |   23 | 2022-05-30 13:12:56 | 2022-05-30 13:12:56 |       1 |
+    |  2 | Hides      | In_Silence |   19 | 2022-05-30 13:14:11 | 2022-05-30 13:14:11 |       1 |
+    |  3 | Lies       | Under_Bed  |   18 | 2022-05-30 13:21:29 | 2022-05-30 13:21:29 |       1 |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    3 rows in set (0.00 sec)
+
+
+Query: Create 3 ninjas that belong to the second dojo
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (4, 'John', 'Kunai', 24, NOW(), NOW(), 2); 
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (5, 'Brandy', 'Katana', 32, NOW(), NOW(), 2); 
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (6, 'Amanda', 'Caltrop', 27, NOW(), NOW(), 2); 
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> select * from ninjas;
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    | id | first_name | last_name  | age  | created_at          | updated_at          | dojo_id |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    |  1 | Shadow     | Lurker     |   23 | 2022-05-30 13:12:56 | 2022-05-30 13:12:56 |       1 |
+    |  2 | Hides      | In_Silence |   19 | 2022-05-30 13:14:11 | 2022-05-30 13:14:11 |       1 |
+    |  3 | Lies       | Under_Bed  |   18 | 2022-05-30 13:21:29 | 2022-05-30 13:21:29 |       1 |
+    |  4 | John       | Kunai      |   24 | 2022-05-30 13:25:42 | 2022-05-30 13:25:42 |       2 |
+    |  5 | Brandy     | Katana     |   32 | 2022-05-30 13:26:35 | 2022-05-30 13:26:35 |       2 |
+    |  6 | Amanda     | Caltrop    |   27 | 2022-05-30 13:27:40 | 2022-05-30 13:27:40 |       2 |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    6 rows in set (0.00 sec)
+
+Query: Create 3 ninjas that belong to the third dojo
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (7, 'Gregory', 'Smithing', 43, NOW(), NOW(), 3);
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (8, 'Yang', 'Tao_Lo', 50, NOW(), NOW(), 3);      
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> insert into ninjas (id, first_name, last_name, age, created_at, updated_at, dojo_id)
+        -> values (9, 'Yin', 'Tao_Lo', 53, NOW(), NOW(), 3);  
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> select * from ninjas;
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    | id | first_name | last_name  | age  | created_at          | updated_at          | dojo_id |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    |  1 | Shadow     | Lurker     |   23 | 2022-05-30 13:12:56 | 2022-05-30 13:12:56 |       1 |
+    |  2 | Hides      | In_Silence |   19 | 2022-05-30 13:14:11 | 2022-05-30 13:14:11 |       1 |
+    |  3 | Lies       | Under_Bed  |   18 | 2022-05-30 13:21:29 | 2022-05-30 13:21:29 |       1 |
+    |  4 | John       | Kunai      |   24 | 2022-05-30 13:25:42 | 2022-05-30 13:25:42 |       2 |
+    |  5 | Brandy     | Katana     |   32 | 2022-05-30 13:26:35 | 2022-05-30 13:26:35 |       2 |
+    |  6 | Amanda     | Caltrop    |   27 | 2022-05-30 13:27:40 | 2022-05-30 13:27:40 |       2 |
+    |  7 | Gregory    | Smithing   |   43 | 2022-05-30 13:36:08 | 2022-05-30 13:36:08 |       3 |
+    |  8 | Yang       | Tao_Lo     |   50 | 2022-05-30 13:37:05 | 2022-05-30 13:37:05 |       3 |
+    |  9 | Yin        | Tao_Lo     |   53 | 2022-05-30 13:37:43 | 2022-05-30 13:37:43 |       3 |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    9 rows in set (0.00 sec)
+
+
+Query: Retrieve all the ninjas from the first dojo
+    mysql> select * from ninjas
+        -> where dojo_id = 1;   
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    | id | first_name | last_name  | age  | created_at          | updated_at          | dojo_id |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    |  1 | Shadow     | Lurker     |   23 | 2022-05-30 13:12:56 | 2022-05-30 13:12:56 |       1 |
+    |  2 | Hides      | In_Silence |   19 | 2022-05-30 13:14:11 | 2022-05-30 13:14:11 |       1 |
+    |  3 | Lies       | Under_Bed  |   18 | 2022-05-30 13:21:29 | 2022-05-30 13:21:29 |       1 |
+    +----+------------+------------+------+---------------------+---------------------+---------+
+    3 rows in set (0.00 sec)
+
+Query: Retrieve all the ninjas from the last dojo
+    mysql> select * from ninjas
+        -> where dojo_id = 3; 
+    +----+------------+-----------+------+---------------------+---------------------+---------+
+    | id | first_name | last_name | age  | created_at          | updated_at          | dojo_id |
+    +----+------------+-----------+------+---------------------+---------------------+---------+
+    |  7 | Gregory    | Smithing  |   43 | 2022-05-30 13:36:08 | 2022-05-30 13:36:08 |       3 |
+    |  8 | Yang       | Tao_Lo    |   50 | 2022-05-30 13:37:05 | 2022-05-30 13:37:05 |       3 |
+    |  9 | Yin        | Tao_Lo    |   53 | 2022-05-30 13:37:43 | 2022-05-30 13:37:43 |       3 |
+    +----+------------+-----------+------+---------------------+---------------------+---------+
+    3 rows in set (0.00 sec)
+
+Query: Retrieve the last ninja's dojo
+    mysql> select dojo_id from ninjas
+        -> where id = 9;
+    +---------+
+    | dojo_id |
+    +---------+
+    |       3 |
+    +---------+
+    1 row in set (0.00 sec)
+
+Submit your .txt file that contains all the queries you ran in the shell
