@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/styles.css') }}" />
+</head>
+<body>
+    
+    <div class="page_container">
+        <div class="nav">
+            <div class="title">
+                {% for x in range(length)%}
+                <h1 id="color{{ x%2+1 }}">{{string[x]}}</h1>
+        {% endfor %}
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="board">
+                {% for y in range(rows) %}
+                    <div class="row">
+                        {% for x in range(columns)%}
+                                <div onload="" class="color{{ (x+y)%2+1 }}"></div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/script.js') }}"></script>
+</html>

@@ -1,0 +1,28 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    background-color: goldenrod;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border: solid 1px black;
+}
+
+tr {
+    border: solid 1px black;
+}
+
+th {
+    border: solid 1px black;
+}
+
+td {
+    border: solid 1px black;
+}

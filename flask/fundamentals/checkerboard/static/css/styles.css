@@ -1,0 +1,59 @@
+* {
+    margin: 0 auto;
+}
+
+body{
+    background: #8aafdd;
+}
+
+.page_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    display: flex;
+    margin: 20px 0 20px 0;
+}
+
+.title {
+    display: flex;
+}
+
+.main {
+    display: flex;
+}
+
+.board {
+    border: black 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.color1 {
+    background: rgb(11, 165, 75);
+    border: black 1px solid;
+    display: flex;
+    min-height: 80px;
+    min-width: 80px;
+}
+
+.color2 {
+    background: rgb(165, 11, 11);
+    border: black 1px solid;
+    display: flex;
+    min-height: 80px;
+    min-width: 80px;
+}
+
+#color1 {    
+    color: rgb(11, 165, 75);
+}
+
+#color2 {
+    color: rgb(165, 11, 11);
+}
