@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Friends</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
 </head>
 <body>
     <div class="bg-light text-dark text-left col-8 my-5 mx-auto"">
         <div class="container">
-            <div class="nav"><h1>HOORAY!</h1></div>
-        
-            <div class="main"></div>
+            <div class="nav"></div>
+            
+            <div class="main">
+                <h1>All My Friends:</h1>
+                {% for one_friend in all_friends %}
+                <p>First Name: {{one_friend.first_name}}</p>
+                <p>Last Name: {{one_friend.last_name}}</p>
+                <p>Occupation: {{one_friend.occupation}}</p>
+                <hr>
+                {% endfor %}
+                
+            </div>
         </div>
+        <a href="/" class="btn margin-1">Home</a>
     </div>
 
 </body>

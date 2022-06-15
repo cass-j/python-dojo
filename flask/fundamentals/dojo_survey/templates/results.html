@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+</head>
+<body>
+    
+    <div class="bg-dark text-light text-left col-5 my-5 mx-auto"">
+        
+        <main class="container text-left">
+            <header class="text-primary"><h2>{{session['name']}}</h2></header>
+            <p class="">
+                Dojo Location: {{session['location']}}
+            </p>
+            <p>
+                Favorite Language: {{session['language']}}
+
+            </p>
+            <p class="row">
+                Comments: {{session['comment']}}
+            </p>
+            <hr>
+            <a href="./">Home</a>
+        </main>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
+</html>

@@ -24,13 +24,13 @@
                 <tbody>
                     {% for user in range(people) %}
                     {% set fullName = users[user]['first_name'] + ' ' +users[user]['last_name']%}
-                    <tr>
-                        <td>{{users[user]['first_name']}}</td>
-                        <td>{{users[user]['last_name']}}</td>
-                        <td>{{fullName}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{users[user]['first_name']}}</td>
+                            <td>{{users[user]['last_name']}}</td>
+                            <td>{{fullName}}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
-                {% endfor %}
             </table>
         </div>
     </div>

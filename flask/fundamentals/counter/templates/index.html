@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+</head>
+<body>
+    
+    <div class="page_container">
+        <header>
+        </header>
+        
+        <main class="border-dark">
+
+            <h1 class="bg-primary text-light text-center col-3 my-5 mx-auto">Counter</h1>
+            <p class="text-center col-3 my-5 mx-auto">{{session['points']}} time(s)</p>
+            <div class="col-3 flex justify- mx-auto">
+                <a href="/" class="btn btn-primary">Add a point</a>
+                <a href="/destroy" class="btn btn-danger">Restart</a>
+            </div>
+
+            <div class="col-3 flex justify- mx-auto">
+                <a href="/plus-2" class="btn btn-success">Add 2 points!</a>
+            </div>
+
+            <div class="bg-dark text-light text-center col-3 my-5 mx-auto">
+                <form action="/add-many" method="post"">
+                    <label for="points" >Enter the requested number of additional points</label>
+                    <input type="text" class="form-control" name="points" placeholder="100000">
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit">Submit!</button>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
+</html>

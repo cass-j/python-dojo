@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Flask</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+</head>
+<body class="bg-off-white">
+    <div class="bg-dark text-light text-left col-8 my-5 mx-auto"">
+        <div class="container">
+            <div class="nav"></div>
+        
+            <div class="main">
+                <h1>Welcome to the friend zone!</h1>
+    
+                <h2>Add a Friend</h2>
+                <form action="/create-friend" method="POST">
+                    <label for="fname">First Name:</label>
+                    <input class="form-control" type="text" name="fname" required>
+                    <label for="lname">Last Name:</label>
+                    <input class="form-control" type="text" name="lname" required>
+                    <label for="occ" >Occupation:</label>
+                    <input class="form-control"type="text" name="occ" required>
+                    
+                    <input class="button margin-2" type="submit" value="Add Friend">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
+</html>

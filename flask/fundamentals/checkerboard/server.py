@@ -7,8 +7,11 @@ app = Flask(__name__)       # Create a new instance of the Flask class called "a
 def index():
     string = 'Checker'
     length = len(string)
-    return render_template('index.html', columns=x, rows=y, string=string, length=length)
+    return render_template('index.html', string=string, length=length)
 
+# @app.route('/')
+# def index():
+#     return"yay!!!"
 
 @app.route('/<int:y>')
 def wide(y):
