@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User {{id}}</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+</head>
+<body>
+    <div class="container">
+        
+        <main class="bg-light text-dark text-left col-8 my-5 mx-auto">
+            
+            {% for user in query %}
+            <nav class="navbar">
+                <h1>
+                    User {{user.id}}
+                </h1>
+                <p class="navbar">
+                    <a href="/users">Home</a>
+                </p>
+            </nav>
+            
+            <table class=" table table-borderless border">
+                    <tr>
+                        <td>Full Name: 
+                        {{user.first_name}} {{user.last_name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email: 
+                        {{user.email}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Created On: 
+                        {{user.created_at.strftime('%B %d, %Y')}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Last Updated: 
+                        {{user.updated_at.strftime('%B %d, %Y')}} at {{user.updated_at.strftime('%I : %M %p')}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/user/edit/{{user.id}}" class="btn btn-warning ">Edit</a>
+                            
+                            <a href="/user/delete/{{user.id}}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </main>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
+</html>

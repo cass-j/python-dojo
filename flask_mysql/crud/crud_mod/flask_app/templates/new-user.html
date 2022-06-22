@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a User</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+</head>
+<body>
+    <div class="bg-light text-dark text-left col-8 my-5 mx-auto"">
+        <div class="container">
+            <nav class="navbar">
+                    <h1>
+                        Add a New User
+                    </h1>
+                <p class="navbar">
+                    <a href="/users">Home</a>
+                </p>
+            </nav>
+        
+            <main>
+                <form action="/create" class="text-left" method="POST">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control" name="fname" required>
+                    <label>Last Name:</label>
+                    <input type="text" class="form-control" name="lname" required>
+                    <label>Email:</label>
+                    <input type="email" class="form-control" name="email" required>
+                    <input type="submit" class="btn margin-2" value="Create">
+                </form>
+            </main>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
+</html>

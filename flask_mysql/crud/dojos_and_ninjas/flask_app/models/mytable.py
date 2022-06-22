@@ -1,7 +1,7 @@
 # import the function that will return an instance of a connection
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 # model the class after the friend table from our database
-class Friend:
+class MyClass:
     def __init__( self , data ):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -12,24 +12,24 @@ class Friend:
     # Now we use class methods to query our database
     @classmethod
     def get_all(cls):
-        query = """SELECT * FROM friends;"""
+        query = """SELECT * FROM myTable;"""
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('first_flask').query_db(query)
+        results = connectToMySQL('default').query_db(query)
         # Create an empty list to append our instances of friends
-        friends = []
+        myVariable = []
         # Iterate over the db results and create instances of friends with cls.
         for friend in results:
-            friends.append( cls(friend) )
-        return friends
+            myVariable.append( cls(friend) )
+        return myVariable
 
     @classmethod
     def save(cls, data ):
-        query = """INSERT INTO friends ( first_name , last_name , occupation , created_at, updated_at ) 
+        query = """INSERT INTO mytable ( first_name , last_name , occupation , created_at, updated_at ) 
         VALUES ( %(fname)s , %(lname)s , %(occ)s , NOW() , NOW() );"""
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('first_flask').query_db( query, data )
 
     @classmethod
     def delete_friend(cls, data):
-        query = """DELETE FROM friends WHERE first_name= %(fname)s AND last_name= %(lname)s AND id = %(id)s"""
+        query = """DELETE FROM mytable WHERE first_name= %(fname)s AND last_name= %(lname)s AND id = %(id)s"""
         return connectToMySQL('first_flask').query_db( query, data)

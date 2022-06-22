@@ -18,6 +18,10 @@
                 <p>First Name: {{one_friend.first_name}}</p>
                 <p>Last Name: {{one_friend.last_name}}</p>
                 <p>Occupation: {{one_friend.occupation}}</p>
+                    <form action="/remove-friend" method="POST">
+                        <input type="text" name="id" value="{{one_friend.id}}" hidden>
+                        <input type="submit" class="btn" value="Remove This friend">
+                    </form>
                 <hr>
                 {% endfor %}
                 

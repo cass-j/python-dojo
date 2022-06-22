@@ -8,25 +8,40 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
 </head>
 <body class="bg-off-white">
-    <div class="bg-dark text-light text-left col-8 my-5 mx-auto"">
+    <div class="bg-dark text-light text-center col-8 my-5 mx-auto">
         <div class="container">
-            <div class="nav"></div>
-        
-            <div class="main">
+            <nav class="">
                 <h1>Welcome to the friend zone!</h1>
-    
-                <h2>Add a Friend</h2>
-                <form action="/create-friend" method="POST">
-                    <label for="fname">First Name:</label>
-                    <input class="form-control" type="text" name="fname" required>
-                    <label for="lname">Last Name:</label>
-                    <input class="form-control" type="text" name="lname" required>
-                    <label for="occ" >Occupation:</label>
-                    <input class="form-control"type="text" name="occ" required>
+            </nav>
+        
+            <main>
+                <div class="navbar">
+                    <p class="h2">
+                        Add a Friend
+                    </p>
+                    <p class="h3">
+                        <a href="/friends" class="text-light">See My Friends</a>
+                    </p>
+                </div>
+                <form class="text-left" action="/create-friend" method="POST">
+                    <label>
+                        First Name:
+                    </label>
+                        <input class="form-control" type="text" name="fname" required>
                     
-                    <input class="button margin-2" type="submit" value="Add Friend">
+                    <label>
+                        Last Name:
+                    </label>
+                        <input class="form-control" type="text" name="lname" required>
+                    
+                    <label>
+                        Occupation:
+                    </label>
+                        <input class="form-control" type="text" name="occ" required>
+                    
+                    <input class="btn margin-2" type="submit" value="Add Friend">
                 </form>
-            </div>
+            </main>
         </div>
     </div>
 

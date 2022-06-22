@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+</head>
+<body>
+    <div class="bg-light text-dark text-left col-8 my-5 mx-auto"">
+        <div class="container">
+            <nav class=""><h1>All Users!</h1></nav>
+        
+            <main>
+                <table class=" table table-bordered table-striped">
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created On</th>
+                    <th>Actions</th>
+
+                    {% for user in all_users %}
+                        <tr>
+                            <td>{{user.id}}</td>
+                            <td>{{user.first_name}} {{user.last_name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.created_at.strftime('%B %d, %Y')}}</td>
+                            <td>
+                                <a href="/user/show/{{user.id}}">Show</a>
+                                |
+                                <a href="/user/edit/{{user.id}}">Edit</a>
+                                |
+                                <a href="/user/delete/{{user.id}}">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                
+                <a href="/user/new" class="btn btn-success">Add a new User</a>
+            </main>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
+</html>
