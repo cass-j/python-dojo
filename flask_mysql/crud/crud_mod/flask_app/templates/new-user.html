@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a User</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
 </head>
 <body>
     <div class="bg-light text-dark text-left col-8 my-5 mx-auto"">
@@ -20,7 +21,7 @@
             </nav>
         
             <main>
-                <form action="/create" class="text-left" method="POST">
+                <form action="/create_user" class="text-left" method="POST">
                     <label>First Name:</label>
                     <input type="text" class="form-control" name="fname" required>
                     <label>Last Name:</label>
@@ -34,5 +35,4 @@
     </div>
 
 </body>
-<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
 </html>

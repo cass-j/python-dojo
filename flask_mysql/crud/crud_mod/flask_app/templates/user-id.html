@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User {{id}}</title>
+    <title>User {{user_id.id}}</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
 </head>
 <body>
     <div class="container">
         
         <main class="bg-light text-dark text-left col-8 my-5 mx-auto">
             
-            {% for user in query %}
             <nav class="navbar">
                 <h1>
-                    User {{user.id}}
+                    User {{user_id.id}}
                 </h1>
                 <p class="navbar">
                     <a href="/users">Home</a>
@@ -23,6 +23,7 @@
             </nav>
             
             <table class=" table table-borderless border">
+                {% for user in user_id %}
                     <tr>
                         <td>Full Name: 
                         {{user.first_name}} {{user.last_name}}
@@ -56,5 +57,4 @@
     </div>
 
 </body>
-<script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}"></script>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{dojo}} Ninjas</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body class="bg-light">
+    <div class="text-dark text-left col-9 my-5 mx-auto"">
+        <div class="container">
+            <main class="row justify-content-start">
+                <div class="">
+                    <h1 class="">
+                        {% for location in dojo %}
+                            {{location.name}} Ninjas
+                            
+                        {% endfor %}
+                    </h1>
+                    <table class="table-bordered table-striped">
+                        <th class=''>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        {% for ninja in ninjas %}
+                        <tr>
+                            <td>
+                            {{ninja.first_name}}
+                            </td>                            
+                            <td>
+                            {{ninja.last_name}}
+                            </td>                            
+                            <td>
+                            {{ninja.age}}
+                            </td>                            
+                        </tr>    
+                        {% endfor %}
+                    </table>
+                    <a href="/" class="">Home</a>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

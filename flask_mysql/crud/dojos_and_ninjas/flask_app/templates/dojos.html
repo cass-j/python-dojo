@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body class="bg-light">
+    <div class="text-dark text-left col-9 my-5 mx-auto"">
+        <div class="container">
+            <main class="row justify-content-around">
+                <div class="col-5">
+                    <h1 class="pb-2">New Dojo</h1>
+                    <form action="/create/dojo" method="post">
+                        <table>
+                            <tr>
+                                <td class="pr-4">
+                                    Name:
+                                </td>
+                                <td>
+                                    <input type="text" name="name" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="pt-3">
+                                    <input type="submit" value="Create">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div class="col-5 m-1">
+                    <h1 class="row pb-2">
+                        All Dojos
+                    </h1>
+                    <table class="row border p-1"> 
+                        {% for dojo in all_dojos %}
+                        <tr>
+                            <td>
+                            <a href="/dojos/{{dojo.id}}">{{dojo.name}}</a>
+                            </td>
+                        </tr>    
+                        {% endfor %}
+                    </table>
+                    <a href="/ninjas" class="row pt-2">Add Ninja</a>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

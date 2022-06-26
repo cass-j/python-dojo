@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+
+<body class="bg-light">
+    <div class="text-dark text-left col-9 my-5 mx-auto"">
+        <div class=" container">
+        <main class="row justify-content-around">
+            <div class="col-6">
+                <h1 class="pb-2">New Ninja</h1>
+                <table class="">
+                    <form action="/create/ninjas" method="post">
+                        <tr>
+                            <td>Dojo:</td>
+                            <td>
+                                <select name="dojo_id">
+                                    {% for dojo in all_dojos %}
+                                    <option name="dojo_id" value="{{dojo.id}}">{{dojo.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        {% for ninja in ninjas %}
+                            
+                        <tr>
+                            <td class="pr-2">ID</td>
+                            <td>
+                                <input type="text" name="id" value="{{ninja.id}}" class="form-control" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>First Name:</td>
+                            <td>
+                                <input type="text" name="fname" value="{{ninja.first_name}}" class="form-control" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td>
+                                <input type="text" name="lname" value="{{ninja.last_name}}" class="form-control" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Age:</td>
+                            <td>
+                                <input type="text" name="age" value="{{ninja.age}}" class="form-control" required>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td></td>
+                            <td class="pt-2">
+                                <input type="submit" value="Create">
+                            </td>
+                        </tr>
+                    </form>
+                    <tr>
+                        <td class="pt-3">
+                            <a href="/">Home</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    </div>
+    </div>
+</body>
+
+</html>

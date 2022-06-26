@@ -19,3 +19,10 @@ def new_method():
     MyClass.save(data)
     # Don't forget to redirect after saving to the database.
     return redirect('/friends')
+
+@app.route("/create", methods=["POST"])
+def create_user():
+    MyClass.save(request.form)
+    userID = User.get_user_id(request.form)
+    uid = userID[0]['id']
+    return redirect(f'/user/show/{uid}')

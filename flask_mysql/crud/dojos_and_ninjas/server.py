@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask_app.controllers import controllers
+from flask_app.controllers import ninjas
 from flask_app import app
 from operator import methodcaller
 

@@ -30,8 +30,11 @@ class User:
 
     @classmethod
     def get_user_by_id(cls, data):
+        id = {
+        "id" : data
+        }
         query = """SELECT * FROM users WHERE id = %(id)s"""
-        return connectToMySQL('users').query_db(query,data)
+        return connectToMySQL('users').query_db(query, id)
     
     @classmethod
     def get_user_id(cls, data):
@@ -49,8 +52,11 @@ class User:
 #Delete
     @classmethod
     def delete_user(cls, data):
+        id = {
+        "id" : data
+        }
         query = """DELETE FROM users WHERE id = %(id)s"""
-        return connectToMySQL('users').query_db( query, data)
+        return connectToMySQL('users').query_db( query, id)
 
 
     # @classmethod
