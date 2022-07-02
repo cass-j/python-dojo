@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body>
+    <div class="bg-light text-dark text-left col-8 my-5 mx-auto"">
+        <div class="container">
+            <main class="text-center">
+                <h1>
+                    Welcome {{session['fname']}}
+                </h1>
+                
+            </main>
+            <form action="/logout">
+                <input class="btn-info" type="submit" value="Logout">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

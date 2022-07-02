@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Report</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body class="bg-dark text-light">
+    <div class=" text-left my-4 mx-auto"">
+
+        <nav class="navbar mb-2">
+            <left class="pb-6">
+                    <h2>Sasquatch Websighting</h2>
+            </left>
+            <right class="text-right flex-column">
+                <h3>{{user_info[0]['first_name']}} {{user_info[0]['last_name']}}</h3>
+                <div class="text-right">
+                    <a href="/dashboard" class="mb-2">
+                        <input type="button" value="Dashboard" class="btn border-dark mb-2">
+                    </a>
+                </div>
+                <a href="/logout">
+                    <input type="button" value="Logout" class="btn border-dark">
+                </a>
+            </right>
+        </nav>
+
+        <main class="container col-8 pt-3">
+            <form action="/post_sighting" method="post">
+                <h2>Report a Sighting</h2>
+                <table>
+                    <tr><td>
+                            <label>
+                                Location
+                                <input type="text" name="location" class="form-control">
+                            </label>    
+                        </td>
+                        <td class="col-2"></td>
+                        <td class="">
+                            <label class="">
+                                Date of Siting:
+                                <input type="date" name="date" class="form-control">
+                            </label>
+                    </td></tr>
+                    <tr><td class="">
+                            <label class="align-content-between">
+                                What Happened:
+                                <textarea name="description" cols="25" rows="6" class="form-control"></textarea>
+                            </label>
+                        </td>
+                        <td class="col-1"></td>
+                        <td class="pb-6">
+                            <label class="pb-6">
+                                # of Sasquatches:
+                                <input type="number" name="number" min="1" class="form-control" value="1">
+                            </label>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <p>{{message}}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                    </td></tr>
+                </table>
+                <input type="number" name="users_id" value="{{user_info[0]['id']}}" hidden>
+                <input type="submit" value="Report!" class="btn mt-3">
+            </form>
+        </main>
+
+    </div>
+</body>
+</html>

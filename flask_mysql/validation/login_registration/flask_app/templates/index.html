@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+
+<body class="bg-light">
+    <table class=" container text-light text-left col-9 my-5 mx-auto">
+        <tr>
+            <td class="bg-dark px-3">
+                <form action="/create/user" method="post">
+
+                    <h1 class="text-primary">
+                        Register
+                    </h1>
+                    <label>
+                        First Name:
+                    </label>
+                    <input type="text" name="fname" class="form-control">
+                    <label>
+                        Last Name:
+                    </label>
+                    <input type="text" name="lname" class="form-control">
+                    <label>
+                        Email:
+                    </label>
+                    <input type="email" name="email" class="form-control">
+                    <label>
+                        Password:
+                    </label>
+                    <input type="password" name="password" class="form-control">
+                    <label>
+                        Confirm Password:
+                    </label>
+                    <input type="password" name="confirm_pass" class="form-control">
+                    <label>
+                        Birth Date:
+                    </label>
+                    <input type="date" name="birthdate" class="form-control">
+                    <label>
+                        Favorite Coding Language:
+                    </label>
+                    <select class="form-control-range select.form-control" type="text" name="language"
+                        placeholder="-- Select a Language --">
+                        <option value="" hidden="TRUE">-- Select a Language --</option>
+                        <option value="HTML">HTML</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="CSS">CSS</option>
+                        <option value="Python">Python</option>
+                        <option value="C#">C#</option>
+                    </select>
+                    <input type="submit" value="Register" class="my-3 btn-primary form-control">
+                </form>
+            </td>
+            
+            <td class="col-4 text-danger text-center">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </td>
+
+            <td class="bg-dark align-top pt-3 px-3">
+                <form action="/login" method="post">
+                    <h1 class="text-success">Login</h1>
+                    <label>
+                        Email:
+                    </label>
+                    <input type="email" name="email" class="form-control">
+                    <label>
+                        Password:
+                    </label>
+                    <input type="password" name="password" class="form-control">
+                    <input type="submit" value="Login" class="mt-3 btn-success form-control">
+                </form>
+            </td>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

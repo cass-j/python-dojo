@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squatch Zone!</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body class="bg-dark text-light">
+    <div class="text-left col-9 my-4 mx-auto">
+        <main class="container row" >
+            <table class="col-12">
+                <tr>
+                    <td class="col-4">
+                        <h1>Register</h1>
+                        <form action="/register" class="form-control col-12 bg-dark text-light" method="post">
+                            <label>
+                                First name:
+                                <input type="text" name="fname">
+                            </label>
+                            <label>
+                                Last name:
+                                <input type="text" name="lname">
+                            </label>
+                            <label>
+                                Email:
+                                <input type="email" name="email">
+                            </label>
+                            <label>
+                                Password:
+                                <input type="password" name="pword">
+                            </label>
+                            <label>
+                                Confirm Password:
+                                <input type="password" name="confirm_pword">
+                            </label>
+                            <label>
+                                <input type="submit" value="Register">
+                            </label>
+                        </form>
+                    </td>
+                    <td class="col-3 text-center">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                    <td class="col-4 pb-6">
+                        <h1>Login</h1>
+                        <form action="/login" class="form-control bg-dark text-light" method="post">
+                            <label>
+                                Email:
+                                <input type="email" name="email" class="form-control text-lowercase">
+                            </label>
+                            <label>
+                                Password:
+                                <input type="password" name="pword" class="form-control">
+                            </label>
+                            <label>
+                                <input type="submit" value="Login">
+                            </label>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </main>
+    </div>
+</body>
+</html>

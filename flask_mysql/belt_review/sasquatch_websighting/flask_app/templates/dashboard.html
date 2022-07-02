@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body class="bg-dark text-light">
+    <div class=" text-left my-4 mx-auto"">
+
+        <nav class="navbar">
+            <left class="pb-6">
+                    <h2>Sasquatch Websighting</h2>
+            </left>
+            <right class="text-right flex-column">
+                <h3>{{user_info[0]['first_name']}} {{user_info[0]['last_name']}}</h3>
+                <div class="text-right mb-2">
+                    <a href="/new/sighting">
+                        <input type="button" value="Report a Sighting" class="btn border-dark">
+                    </a>
+                </div>
+                <a href="/logout">
+                    <input type="button" value="Logout" class="btn border-dark">
+                </a>
+            </right>
+        </nav>
+
+        <main class="container">
+            <h2>Reported Sightings</h2>
+            <div class="pre-scrollable col-11 border">
+                {% for post in posts %}
+                    {% if user_info[0]['id'] == post.id %}
+                        <table class="border-bottom my-1">
+                            <tr class="py-3">
+                                <td class="col">
+                                    <h4>{{post.location}} - {{post.date.strftime('%m/%d/%Y')}}</h4>
+                                    <h4>Reported by: {{post.first_name}} {{post.last_name}}</h4>
+                                </td>
+                                <td class="col"></td>
+                                <td class="col">
+                                    <form action="/edit/{{post.sid}}" method="post">
+                                        <input type="text" name="id" value="{{post.sid}}" hidden>
+                                        <input type="submit" class="btn" value="Edit">
+                                    </form>
+                                </td>
+                                <td class="col">
+                                    <form action="/delete/{{post.sid}}" method="post">
+                                        <input type="text" name="id" value="{{post.sid}}" hidden>
+                                        <input type="submit" class="btn" value="Delete">
+                                    </form>
+                                </td>
+                                <td class="col"></td>
+                            </tr>
+                        </table>
+                    {% endif %}
+
+                    {% if user_info[0]['id'] != post.id %}
+                        <table class="border-bottom my-2">
+                            <tr>
+                                <td class="col">
+                                    <h4>{{post.location}} - {{post.date.strftime('%m/%d/%Y')}}</h4>
+                                    <h4>Reported by: {{post.first_name}} {{post.last_name}}</h4>
+                                </td>
+                                <td>
+                                    <a href="/show/{{post.sid}}">
+                                        <button class="btn">View</button>
+                                    </a>
+                                </td>
+                                <td class="col"></td>
+                                <td class="col"></td>
+                                <td class="col"></td>
+                            </tr>
+                        </table>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>

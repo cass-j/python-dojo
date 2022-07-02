@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename ='./css/bootstrap.css') }}" />
+    <script type="text/javascript" src="{{url_for('static', filename ='./js/bootstrap.min.js') }}" defer></script>
+</head>
+<body class="bg-dark text-light">
+    <div class=" text-left my-4 mx-auto"">
+
+        <nav class="navbar">
+            <left class="pb-6">
+                    <h2>Sasquatch Not Found</h2>
+            </left>
+            <right class="text-right flex-column">
+                <h3>{{user_info[0]['first_name']}} {{user_info[0]['last_name']}}</h3>
+                <div class="text-right mb-2">
+                    <a href="/dashboard">
+                        <input type="button" value="Dashboard" class="btn border-dark">
+                    </a>
+                </div>
+                <a href="/logout">
+                    <input type="button" value="Logout" class="btn border-dark">
+                </a>
+            </right>
+        </nav>
+
+        <main class="container col-10 pt-3">
+            <div>
+                <h1 class="py-1">{{posts[0]['location']}} on {{posts[0]['date'].strftime('%B %d %Y')}}</h1>
+                <h3 class="py-4">What Happened:</h3>
+                <h5 class="py-1">{{posts[0]['description']}}</h5>
+                <h5 class="py-4"># of Sasquatches: {{posts[0]['number_sighted']}}</h5>
+                <h5 class="py-1">Reported By: {{posts[0]['first_name']}} {{posts[0]['last_name']}}</h5>
+            </div>
+        </main>
+
+        <footer>
+            <hr>
+            <table>
+                <tr>
+                    <td class="border-right"><a href="/">Login</a></td>
+
+                </tr>
+            </table>
+        </footer>
+    </div>
+</body>
+</html>

@@ -22,7 +22,7 @@ def process():
 
 @app.route('/results', methods=['GET'])
 def results():
-        return render_template('results.html',)
+    return render_template('results.html')
 
                                 # app.run(debug=True) should be the very last statement!
 if __name__=="__main__":    # Ensure this file is being run directly and not from a different module    

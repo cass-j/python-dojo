@@ -1,6 +1,9 @@
 from flask_app import app
+from flask_bcrypt import Bcrypt
 from flask import render_template,redirect,request,session,flash
+import re
 from flask_app.models.mytable import MyClass
+bcrypt=Bcrypt(app)
 
 @app.route('/')             # The "@" decorator associates this route with the function immediately following
 def index():
@@ -23,6 +26,6 @@ def new_method():
 @app.route("/create", methods=["POST"])
 def create_user():
     MyClass.save(request.form)
-    userID = User.get_user_id(request.form)
+    userID = MyClass.get_user_id(request.form)
     uid = userID[0]['id']
     return redirect(f'/user/show/{uid}')

@@ -1,5 +1,11 @@
 # import the function that will return an instance of a connection
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask import flash
+from flask_app import app
+from flask_bcrypt import Bcrypt
+import re
+bcrypt=Bcrypt(app)
+
 # model the class after the friend table from our database
 class MyClass:
     def __init__( self , data ):

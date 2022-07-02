@@ -2,6 +2,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
+
 class Survey:
     def __init__( self , data ):
         self.id = data['id']
